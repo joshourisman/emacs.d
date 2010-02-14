@@ -24,6 +24,7 @@
 	     "~/.emacs.d/plugins/yasnippet-0.6.1c")
 (require 'yasnippet)
 (yas/initialize)
-(setq yas/root-directory '("~/.emacs.d/plugins/yasnippet-0.6.1c/snippets"
-			   "~/.emacs.d/mysnippets"))
+
+(setq yas/root-directory '("~/.emacs.d/mysnippets"
+			   "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets"))
 (mapc 'yas/load-directory yas/root-directory)
