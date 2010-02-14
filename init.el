@@ -28,3 +28,5 @@
 (setq yas/root-directory '("~/.emacs.d/mysnippets"
 			   "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets"))
 (mapc 'yas/load-directory yas/root-directory)
+
+(load "~/.emacs.d/plugins/django-mode.el")
