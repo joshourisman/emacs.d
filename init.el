@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
 ;; set more reasonable window size
 (defun set-frame-size-according-to-resolution ()
   (interactive)
