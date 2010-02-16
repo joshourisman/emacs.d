@@ -56,3 +56,4 @@
 ;; display current column number in mode line
 (setq column-number-mode t)
 
+(require 'mercurial)
