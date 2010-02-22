@@ -1,3 +1,4 @@
 syntax:glob
 auto-save-list
 *~
+tramp
