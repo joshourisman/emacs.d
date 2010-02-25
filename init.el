@@ -15,6 +15,11 @@
   (let (parens-require-spaces)
     (insert-pair)))
 
+;; Set tabs to be 4 spaces
+(setq indent-tabs-mode nil)
+(setq tab-width 4)
+(setq-default py-indent-offset 4)
+
 ;; Put backup files somewhere less annoying
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
