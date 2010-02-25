@@ -6,6 +6,9 @@
 	    (define-key python-mode-map "(" 'electric-pair)
 	    (define-key python-mode-map "[" 'electric-pair)
 	    (define-key python-mode-map "{" 'electric-pair)))
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (define-key emacs-lisp-mode-map "(" 'electric-pair)))
 (defun electric-pair ()
   "Insert character pair without sournding spaces"
   (interactive)
