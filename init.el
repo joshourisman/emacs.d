@@ -3,6 +3,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+;; Backup files are annoying. put them in a centralized location.
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
 ;; set more reasonable window size
 (defun set-frame-size-according-to-resolution ()
   (interactive)
