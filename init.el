@@ -3,9 +3,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
-;; Backup files are annoying. put them in a centralized location.
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-
 ;; set more reasonable window size
 (defun set-frame-size-according-to-resolution ()
   (interactive)
@@ -62,6 +59,12 @@
 (mapc 'yas/load-directory yas/root-directory)
 
 (load "~/.emacs.d/plugins/django-mode.el")
+
+;; markdown mode
+(autoload 'markdown-mode "markdown-mode.el"
+   "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+   (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
 
 ;; display current column number in mode line
 (setq column-number-mode t)
