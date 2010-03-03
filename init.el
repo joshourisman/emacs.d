@@ -66,6 +66,9 @@
 (setq auto-mode-alist
    (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
 
+;; enable emacs-nav
+(require 'nav)
+
 ;; display current column number in mode line
 (setq column-number-mode t)
 
