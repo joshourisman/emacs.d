@@ -1,6 +1,9 @@
 ;; Add plugins to load-path
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+;; enable line numbers for text-mode
+(global-linum-mode t)
+
 ;; set up textmate-mode
 (require 'textmate-mode)
 
