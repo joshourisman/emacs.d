@@ -1,22 +1,20 @@
 ;; Add plugins to load-path
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
-;; enable line numbers for text-mode
-(global-linum-mode t)
-
 ;; set up textmate-mode
 (require 'textmate-mode)
 (add-hook 'python-mode-hook 'textmate-mode)
+(add-hook 'emacs-lisp-mode-hook 'textmate-mode)
 
 ;; set up electric pairs for elisp-mode
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (define-key emacs-lisp-mode-map "(" 'electric-pair)))
-(defun electric-pair ()
-  "Insert character pair without sournding spaces"
-  (interactive)
-  (let (parens-require-spaces)
-    (insert-pair)))
+;; (add-hook 'emacs-lisp-mode-hook
+;; 	  (lambda ()
+;; 	    (define-key emacs-lisp-mode-map "(" 'electric-pair)))
+;; (defun electric-pair ()
+;;   "Insert character pair without sournding spaces"
+;;   (interactive)
+;;   (let (parens-require-spaces)
+;;     (insert-pair)))
 
 ;; Set tabs to be 4 spaces
 (setq indent-tabs-mode nil)
@@ -108,3 +106,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; code checking via flymake
+;; set code checker here from "epylint", "pyflakes"
+(setq pycodechecker "pyflakes")
+(when (load "flymake" t)
+  (defun flymake-pycodecheck-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list pycodechecker (list local-file))))
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pycodecheck-init)))
+
+(add-hook 'python-mode-hook 'flymake-mode)
+
