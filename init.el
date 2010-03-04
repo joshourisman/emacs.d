@@ -1,11 +1,11 @@
-;; ;;; Electric Pairs
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (define-key python-mode-map "\"" 'electric-pair)
-	    (define-key python-mode-map "\'" 'electric-pair)
-	    (define-key python-mode-map "(" 'electric-pair)
-	    (define-key python-mode-map "[" 'electric-pair)
-	    (define-key python-mode-map "{" 'electric-pair)))
+;; Add plugins to load-path
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
+;; set up textmate-mode
+(require 'textmate-mode)
+
+(add-hook 'python-mode-hook 'textmate-mode)
+
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (define-key emacs-lisp-mode-map "(" 'electric-pair)))
@@ -22,8 +22,6 @@
 
 ;; Put backup files somewhere less annoying
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-
-(add-to-list 'load-path "~/.emacs.d/plugins")
 
 ;; set more reasonable window size
 (defun set-frame-size-according-to-resolution ()
@@ -84,9 +82,9 @@
 
 ;; markdown mode
 (autoload 'markdown-mode "markdown-mode.el"
-   "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
-   (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
+      (cons '("\\.mdown" . markdown-mode) auto-mode-alist))
 
 ;; enable emacs-nav
 (require 'nav)
@@ -96,14 +94,14 @@
 
 (require 'mercurial)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(nav-quickdir-list (quote ("~/.emacs.d" "~/PROJECTS" "~/OPENSOURCE"))))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
