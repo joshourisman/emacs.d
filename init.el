@@ -3,9 +3,9 @@
 
 ;; set up textmate-mode
 (require 'textmate-mode)
-
 (add-hook 'python-mode-hook 'textmate-mode)
 
+;; set up electric pairs for elisp-mode
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (define-key emacs-lisp-mode-map "(" 'electric-pair)))
