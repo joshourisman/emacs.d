@@ -7,7 +7,9 @@
 ;; set up textmate-mode
 (require 'textmate-mode)
 (add-hook 'python-mode-hook 'textmate-mode)
+(add-hook 'html-mode-hook 'textmate-mode)
 (add-hook 'emacs-lisp-mode-hook 'textmate-mode)
+(add-hook 'text-mode-hook 'textmate-mode)
 
 ;; set up electric pairs for elisp-mode
 ;; (add-hook 'emacs-lisp-mode-hook
