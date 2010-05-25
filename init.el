@@ -1,6 +1,9 @@
 ;; Add plugins to load-path
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+;; Set up minimap
+(require 'minimap)
+
 ;; enable line numbers for text-mode
 (global-linum-mode t)
 
