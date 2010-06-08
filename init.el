@@ -1,6 +1,9 @@
 ;; Add plugins to load-path
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+;; turn on global-auto-revert
+(global-auto-revert-mode 1)
+
 ;; Set up minimap
 (require 'minimap)
 
