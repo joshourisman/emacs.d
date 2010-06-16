@@ -111,18 +111,28 @@
 ;; display current column number in mode line
 (setq column-number-mode t)
 
+;; keep org-mode dynamic blocks up to date
+(add-hook 'org-mode-hook
+          (lambda() (add-hook 'before-save-hook 
+                              'org-update-all-dblocks t t)))
+
+;; persistant org-mode clock info
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
 (require 'mercurial)
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(nav-quickdir-list (quote ("~/.emacs.d" "~/PROJECTS" "~/OPENSOURCE"))))
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(nav-quickdir-list (quote ("~/.emacs.d" "~/PROJECTS" "~/OPENSOURCE")))
+ '(org-agenda-files (quote ("~/Dropbox/OrgFiles/organizer.org"))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  )
 
 ;; code checking via flymake
