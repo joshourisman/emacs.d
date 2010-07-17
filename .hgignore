@@ -3,3 +3,4 @@ syntax:glob
 auto-save-list
 *~
 tramp
+org-clock-save.el
